@@ -25,7 +25,14 @@ public class BrailleASCII {
       if (type.equals("braille")) {
         char[] text = args[1].toCharArray();
         for (char ch : text) {
-          converted = converted + BrailleAsciiTables.toBraille(ch);
+          if (!Character.isAlphabetic(ch)) {
+            converted = converted + "\nTrouble translating because No corresponding value";
+            pen.println(converted);
+            pen.close();
+            return;
+          } else {
+            converted = converted + BrailleAsciiTables.toBraille(ch);
+          }
         } // for
       } else if (type.equals("unicode")) {
         char[] text = args[1].toCharArray();
@@ -48,7 +55,9 @@ public class BrailleASCII {
             converted = converted + BrailleAsciiTables.toAscii(str);
           } // for
         } else {
-          pen.println("Invalid length of bits");
+          pen.println("Invalid length of bit string");
+          pen.close();
+          return;
         } // if
       } // if
       pen.println(converted);
