@@ -18,8 +18,7 @@ public class BrailleAsciiTables {
   /**
    * Conversions from ASCII to braille.
    */
-  static final String a2b = 
-      "01000001,100000\n"
+  static final String a2b = "01000001,100000\n"
       + "01000010,110000\n"
       + "01000011,100100\n"
       + "01000100,100110\n"
@@ -76,8 +75,7 @@ public class BrailleAsciiTables {
   /**
    * Conversions from braille to ASCII.
    */
-  static final String b2a =
-      "100000,A\n"
+  static final String b2a = "100000,A\n"
       + "110000,B\n"
       + "100100,C\n"
       + "100110,D\n"
@@ -108,8 +106,7 @@ public class BrailleAsciiTables {
   /**
    * Conversions from braille to unicode.
    */
-  static final String b2u =
-      "000000,2800\n"
+  static final String b2u = "000000,2800\n"
       + "100000,2801\n"
       + "010000,2802\n"
       + "110000,2803\n"
@@ -202,7 +199,12 @@ public class BrailleAsciiTables {
   // +----------------+
 
   /**
+   * Method meant to convert a letter to its bit string representation.
    *
+   * @param letter
+   *               what letter you want converted to brailled
+   * @return
+   *         a bit string that represents the character
    */
   public static String toBraille(char letter) {
     if (null == a2bTree) {
@@ -215,16 +217,21 @@ public class BrailleAsciiTables {
         // We don't care if we can't close the stream.
       } // try/catch
     } // if
-    int number = (int)letter;
+    int number = (int) letter;
     String bitStr = Integer.toBinaryString(number);
     while (bitStr.length() < 8) {
       bitStr = "0" + bitStr;
-    }
+    } // while
     return a2bTree.get(bitStr);
   } // toBraille(char)
 
   /**
+   * Turns a bit string into its ascii representation.
    *
+   * @param bits
+   *             bit string to be converted
+   * @return
+   *         ascci representation of bit string
    */
   public static String toAscii(String bits) {
     // Make sure we've loaded the braille-to-ASCII tree.
@@ -242,7 +249,12 @@ public class BrailleAsciiTables {
   } // toAscii(String)
 
   /**
+   * Turns bit string into unicode representation.
    *
+   * @param bits
+   *             bit string to be converted
+   * @return
+   *         unicode representation of bit string
    */
   public static String toUnicode(String bits) {
     // Make sure we've loaded the braille-to-ASCII tree.

@@ -1,38 +1,39 @@
 package edu.grinnell.csc207.util;
+
 /**
  * An interface for different tyeps of nodes
  */
 public class BitTreeNode {
-    
-    String value;
 
-    BitTreeNode left;
+  /**
+   * Fields
+   */
 
-    BitTreeNode right;
+  String value;
 
-    public BitTreeNode () {
-        this.value = null;
-        this.left = null;
-        this.right = null;
-    }
+  BitTreeNode left;
 
-    public BitTreeNode (String str) {
-        this.value = str;
-    }
+  BitTreeNode right;
 
-    public void addLeft(BitTreeNode node) {
-        this.left = node;
-    }
+  /**
+   * Constructors
+   */
+  /**
+   * Constructs an empty node.
+   */
+  public BitTreeNode() {
+    this.value = null;
+    this.left = null;
+    this.right = null;
+  } // BitTreeNode()
 
-    public void addRight(BitTreeNode node) {
-        this.right = node;
-    }
-
-    public void setValue(String val) {
-        this.value = val;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-}
+  /**
+   * Constructor of a new node with a value.
+   *
+   * @param str
+   *            The value you want the node to have
+   */
+  public BitTreeNode(String str) {
+    this.value = str;
+  } // BitTreeNode (String)
+} // BitTreeNode class
