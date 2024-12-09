@@ -1,23 +1,25 @@
 package edu.grinnell.csc207.util;
 
 /**
- * An interface for different tyeps of nodes
+ * An interface for different tyeps of nodes.
  */
 public class BitTreeNode {
 
   /**
-   * Fields
+   * field for value in node.
    */
-
   String value;
 
+  /**
+   * field for left branch.
+   */
   BitTreeNode left;
 
+  /**
+   * Field for right branch.
+   */
   BitTreeNode right;
 
-  /**
-   * Constructors
-   */
   /**
    * Constructs an empty node.
    */

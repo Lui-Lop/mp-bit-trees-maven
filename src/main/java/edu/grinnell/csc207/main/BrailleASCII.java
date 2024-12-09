@@ -13,7 +13,7 @@ public class BrailleASCII {
 
   /**
    * Takes in type of conversion and input to convert it.
-   * 
+   *
    * @param args
    *             type of conversion and what you want converted
    */

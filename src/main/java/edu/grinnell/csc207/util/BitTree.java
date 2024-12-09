@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 /**
- * Trees intended to be used in storing mappings between fixed-length 
+ * Trees intended to be used in storing mappings between fixed-length
  * sequences of bits and corresponding values.
  *
  * @author Luis Lopez
@@ -17,8 +17,14 @@ public class BitTree {
   // | Fields |
   // +--------+
 
+  /**
+   * Field to store size of tree.
+   */
   int size;
 
+  /**
+   * Field to store root of tree.
+   */
   BitTreeNode root;
 
   // +--------------+------------------------------------------------
@@ -38,6 +44,15 @@ public class BitTree {
   // | Local helpers |
   // +---------------+
 
+  /**
+   * Helper to get next node until you reach the leaf.
+   * @param curr
+   *  current node being looked at
+   * @param ch
+   *  character passed to determine which side to go down
+   * @return
+   *  branch of curr or curr if last node
+   */
   public BitTreeNode nextNode(BitTreeNode curr, char ch) {
     if (!Character.isDigit(ch)) {
       throw new IndexOutOfBoundsException();
@@ -66,7 +81,7 @@ public class BitTree {
    * @param str
    *  the current string for each branch gone down
    */
-  public void treeVals (PrintWriter pen, BitTreeNode node, String str) {
+  public void treeVals(PrintWriter pen, BitTreeNode node, String str) {
     if (node.left != null) {
       treeVals(pen, node.left, str + "0");
     } // if
@@ -76,13 +91,13 @@ public class BitTree {
     if (node.value != null) {
       pen.println(str + "," + get(str));
     } // if
-  }// treeVals (PrintWriter, BitTreeNode, String)
+  } // treeVals (PrintWriter, BitTreeNode, String)
   // +---------+-----------------------------------------------------
   // | Methods |
   // +---------+
 
 /**
- * Sets a value based on the bit string for it, sets a new node when needed
+ * Sets a value based on the bit string for it, sets a new node when needed.
  * @param bits
  *  bit string that is meant to represent a value
  * @param value
@@ -104,7 +119,7 @@ public class BitTree {
   } // set(String, String)
 
 /**
- * Gets a value from tree based on bit string
+ * Gets a value from tree based on bit string.
  * @param bits
  *  bit string to go through tree
  * @return
@@ -123,7 +138,7 @@ public class BitTree {
   } // get(String, String)
 
 /**
- * Prints out all the contents
+ * Prints out all the contents.
  * @param pen
  *  the printwriter you wish to print to
  */
@@ -133,7 +148,7 @@ public class BitTree {
 
 /**
  * Takes an input that can be multiple sets of values
- * that you want to put into a tree
+ * that you want to put into a tree.
  * @param source
  *  the InputStream with the values you want to set
  */
