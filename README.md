@@ -10,7 +10,7 @@ A mini-project exploring bit trees (a form of binary tree) and their use in tran
 **Acknowledgements**
 
 *
-*
+* Samuel A. Rebelsky
 *
 
 **Instructions for use**
