@@ -25,9 +25,16 @@ public class BrailleASCII {
           converted = converted + BrailleAsciiTables.toBraille(ch);
         }
       } else if (type.equals("unicode")) {
-        if ((args[1].length() % 6) == 0) {
-          for (int i = 0; i < args[1].length(); i += 6) {
-            String str = args[1].substring(i, i + 6);
+        char[] text = args[1].toCharArray();
+        String braille = "";
+        for (char ch : text) {
+          braille = braille + BrailleAsciiTables.toBraille(ch);
+        }
+
+
+        if ((braille.length() % 6) == 0) {
+          for (int i = 0; i < braille.length(); i += 6) {
+            String str = braille.substring(i, i + 6);
             converted = converted + BrailleAsciiTables.toUnicode(str);
           }
         } else {

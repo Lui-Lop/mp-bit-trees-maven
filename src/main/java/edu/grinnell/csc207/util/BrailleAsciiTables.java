@@ -215,12 +215,11 @@ public class BrailleAsciiTables {
         // We don't care if we can't close the stream.
       } // try/catch
     } // if
-    int number = Character.getNumericValue(letter);
+    int number = (int)letter;
     String bitStr = Integer.toBinaryString(number);
     while (bitStr.length() < 8) {
       bitStr = "0" + bitStr;
     }
-    System.err.println(bitStr);
     return a2bTree.get(bitStr);
   } // toBraille(char)
 
