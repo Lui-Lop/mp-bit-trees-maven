@@ -208,8 +208,19 @@ public class BrailleAsciiTables {
     if (null == a2bTree) {
       a2bTree = new BitTree(8);
       InputStream a2bStream = new ByteArrayInputStream(a2b.getBytes());
+      a2bTree.load(a2bStream);
+      try {
+        a2bStream.close();
+      } catch (IOException e) {
+        // We don't care if we can't close the stream.
+      } // try/catch
+    } // if
+    int number = Character.getNumericValue(letter);
+    String bitStr = Integer.toBinaryString(number);
+    while (bitStr.length() < 8) {
+      bitStr = "0" + bitStr;
     }
-    String bitStr = "S";
+    System.err.println(bitStr);
     return a2bTree.get(bitStr);
   } // toBraille(char)
 
