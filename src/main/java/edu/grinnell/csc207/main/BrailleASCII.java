@@ -32,7 +32,7 @@ public class BrailleASCII {
             return;
           } else {
             converted = converted + BrailleAsciiTables.toBraille(ch);
-          }
+          } // if
         } // for
       } else if (type.equals("unicode")) {
         char[] text = args[1].toCharArray();
