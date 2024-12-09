@@ -119,7 +119,6 @@ public class BitTree {
     try {
       line = reader.readLine();
       while (line != null) {
-        System.out.println(line);
         String[] inputs = line.split(",");
         set(inputs[0], inputs[1]);
         line = reader.readLine();
